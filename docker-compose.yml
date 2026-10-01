@@ -1,0 +1,15 @@
+services:
+  filament-dryer:
+    build: .
+    container_name: filament-dryer-gcode
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      - HOST=0.0.0.0
+    # Mount static & templates as volumes for live-edit on homeserver
+    # (comment out if you prefer fully contained image)
+    # volumes:
+    #   - ./templates:/app/templates
+    #   - ./static:/app/static
